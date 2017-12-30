@@ -7,11 +7,11 @@ let config = {
         filename: "bundle.js"
     },
     module:{
-        loaders:[{
-            test:/\.js?/,
-            include:path.resolve(__dirname, "src"),
-            loader:"babel-loader"
-        }]
+        rules:[
+            {test:/\.js?/,include:path.resolve(__dirname, "src"),loader:"babel-loader"},
+            {test:/\.(jpe?g|png|gif)$/i, loader:"file-loader?name=images/[name].[ext]"},
+            { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' }
+        ]
     }
 
 }
